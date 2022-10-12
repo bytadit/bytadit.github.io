@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth transition-all max-h-screen">
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1"
+/>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5"
+/>
+<meta name="author" content="Aditya Bagus Pratama" />
+     
+
+
+<title>Posts</title>
+<meta name="description" content="I&#39;m a learner, learning how to learn" />
+<meta name="keywords" content='blog, ideal, hugo' />
+<meta property="og:url" content="https://bytadit.me/posts/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Posts" />
+<meta property="og:description" content="I&#39;m a learner, learning how to learn" />
+<meta property="og:image" content="/images/profile.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Posts" />
+<meta name="twitter:description" content="I&#39;m a learner, learning how to learn" />
+<meta property="twitter:domain" content="https://bytadit.me/posts/" />
+<meta property="twitter:url" content="https://bytadit.me/posts/" />
+<meta name="twitter:image" content="/images/profile.png" />
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content="I&#39;m a learner, learning how to learn"> <meta property="og:title" content="Posts" />
+<meta property="og:description" content="I&#39;m a learner, learning how to learn" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://bytadit.me/posts/" />
+
+ <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content="I&#39;m a learner, learning how to learn"/>
+
+<link rel="canonical" href="https://bytadit.me/posts/" />
+
+
+
+<link rel="icon" href="https://bytadit.me//img/logo.svg" />
+
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+  
+<link
+  rel="stylesheet"
+  href="/css/output.min.b717b96caa397a6dc8d0862778db2b171f9f455ae90d3a3ae1d54583eb336f89.css"
+  integrity="sha256-txe5bKo5em3I0IYneNsrFx+fRVrpDTo64dVFg+szb4k="
+/>
+
+
+<script>
+  
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+     <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+   
+</head>
+  <body class="dark:bg-stone-800 bg-white"><section
+  class="sticky top-0 navigation bg-gray-100 border-b-2 border-gray-200 dark:border-neutral-800 dark:bg-stone-900 sm:py-1.5 z-10"
+>
+  <nav
+    class="bg-gray-100 px-2 sm:px-4 py-1.5 dark:bg-stone-900 md:mx-12 lg:mx-24 transition-all"
+    id="navbar"
+  >
+    <div
+      class="container mx-auto md:px-6 flex flex-wrap items-center justify-between"
+      id="nav-container"
+    >
+      
+      <a href="https://bytadit.me/" class="flex md:hidden">
+        <img class="h-8" src="/images/byt-logo-yell.svg" alt="site-logo" />
+
+        <span
+          class="self-center text-lg font-semibold whitespace-nowrap dark:text-white"
+          >Bytadit</span
+        >
+      </a>
+      
+      <div class="flex md:order-3 px-5">
+        
+        <button
+          id="theme-toggle"
+          type="button"
+          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-stone-800 rounded-full text-sm p-2.5 ml-3"
+        >
+          <svg
+            id="theme-toggle-dark-icon"
+            class="w-5 h-5 hidden"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="theme-toggle-light-icon"
+            class="w-5 h-5 hidden"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        
+        <button
+          data-collapse-toggle="mobile-menu-4"
+          type="button"
+          class="md:hidden text-gray-500 hover:bg-gray-100focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-full text-sm p-2 ml-3 inline-flex items-center dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-stone-800"
+          aria-controls="mobile-menu-4"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <svg
+            class="hidden w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div
+        class="hidden md:flex items-center w-full md:w-auto md:order-2"
+        id="mobile-menu-4"
+      >
+        
+        <ul
+          class="navbar-nav flex-col md:flex-row flex md:space-x-8 my-4 sm:mb-0 sm:mt-4 md:mt-0 md:text-md md:font-medium"
+        >
+          
+          <li class="list">
+            <a
+              href="/#home"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Home </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/projects/"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Projects </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/posts/"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Posts </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/#contact"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Contact </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/about"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > About </a
+            >
+          </li>
+          
+        </ul>
+      </div>
+      
+      <div
+        class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1"
+        id="mobile-menu-4"
+      >
+        
+        <a href="https://bytadit.me/" class="hidden md:flex mr-10">
+          <img class="h-8" src="/images/byt-logo-yell.svg" alt="site-logo" />
+          <span
+            class="self-center text-lg font-semibold whitespace-nowrap dark:text-white"
+            >Bytadit</span
+          >
+        </a>
+      </div>
+    </div>
+  </nav>
+</section>
+
+    <main class="flex-1 mx-4"> <div class="mt-8 md:mx-16 lg:mx-28">
+  <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div class="col-span-4 md:col-span-2 lg:col-span-3">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+        <div class="col-span-3 sm:col-span-2">
+          <h5
+            class="text-4xl lg:text-3xl text-center sm:text-left font-extrabold text-gray-900 dark:text-white"
+          >
+            Posts
+          </h5>
+        </div>
+        
+        
+        <div class="col-span-1 sm:col-span-2"></div>
+      </div>
+      
+      <h2
+        class="text-3xl my-2 font-extrabold dark:text-yellow-300 text-yellow-300 posts-year"
+      >
+        2022
+      </h2>
+      <hr class="border-gray-200 sm:mx-auto dark:border-gray-700" />
+      <div class="mb-8"><h2 class="post-title text-lg font-semibold dark:text-white">
+  <a
+    href="https://bytadit.me/posts/my-website-journey/"
+    class="container post-link mx-auto flex flex-wrap items-center justify-between"
+  >
+    <p class="my-1 text-lg dark:text-white">My Website Journey</p>
+    <span class="text-base dark:text-white post-date"
+      >October 10</span
+    >
+  </a>
+</h2>
+
+      </div>
+      
+      <h2
+        class="text-3xl my-2 font-extrabold dark:text-yellow-300 text-yellow-300 posts-year"
+      >
+        2020
+      </h2>
+      <hr class="border-gray-200 sm:mx-auto dark:border-gray-700" />
+      <div class="mb-8"><h2 class="post-title text-lg font-semibold dark:text-white">
+  <a
+    href="https://bytadit.me/posts/emoji-support/"
+    class="container post-link mx-auto flex flex-wrap items-center justify-between"
+  >
+    <p class="my-1 text-lg dark:text-white">Emoji Support for you it&#39;s a fenomenal</p>
+    <span class="text-base dark:text-white post-date"
+      >October 1</span
+    >
+  </a>
+</h2>
+<h2 class="post-title text-lg font-semibold dark:text-white">
+  <a
+    href="https://bytadit.me/posts/theme-documentation-advanced/"
+    class="container post-link mx-auto flex flex-wrap items-center justify-between"
+  >
+    <p class="my-1 text-lg dark:text-white">Theme Documentation - Advanced</p>
+    <span class="text-base dark:text-white post-date"
+      >May 6</span
+    >
+  </a>
+</h2>
+
+      </div>
+      
+      <h2
+        class="text-3xl my-2 font-extrabold dark:text-yellow-300 text-yellow-300 posts-year"
+      >
+        2019
+      </h2>
+      <hr class="border-gray-200 sm:mx-auto dark:border-gray-700" />
+      <div class="mb-8"><h2 class="post-title text-lg font-semibold dark:text-white">
+  <a
+    href="https://bytadit.me/posts/markdown-syntax/"
+    class="container post-link mx-auto flex flex-wrap items-center justify-between"
+  >
+    <p class="my-1 text-lg dark:text-white">Markdown Syntax Guide</p>
+    <span class="text-base dark:text-white post-date"
+      >June 19</span
+    >
+  </a>
+</h2>
+
+      </div>
+      
+    </div>
+    <div class="col-span-4 lg:col-span-1 md:col-span-1 m-4">
+      <div
+        class="container p-3 bg-gray-100 rounded-md border border-gray-100 dark:bg-stone-900 dark:border-gray-900"
+      >
+        <h5
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 mb-2 text-sm text-stone-900 dark:text-gray-100 font-extrabold underline underline-offset-4 decoration-yellow-300 decoration-2"
+        >
+          CATEGORIES
+        </h5>
+        
+        <a
+          href="/categories/development"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Development
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+        <a
+          href="/categories/experience"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Experience
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+      </div>
+      <br />
+      <div
+        class="container p-3 bg-gray-100 rounded-md border border-gray-100 dark:bg-stone-900 dark:border-gray-900"
+      >
+        <h5
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 mb-2 text-sm text-stone-900 dark:text-gray-100 font-extrabold underline underline-offset-4 decoration-yellow-300 decoration-2"
+        >
+          TAGS
+        </h5>
+        
+
+        <a
+          href="/tags/configuration"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Configuration
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/css"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Css
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/emoji"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Emoji
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/html"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          HTML
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/hugo"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Hugo
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/installation"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Installation
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/journey"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Journey
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/markdown"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Markdown
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            2
+          </span>
+        </a>
+        
+
+        <a
+          href="/tags/webdev"
+          type="button"
+          class="flex flex-wrap items-center justify-between px-2.5 py-2 text-sm font-bold dark:hover:text-gray-900 text-center text-gray-900 dark:text-gray-100 hover:bg-yellow-300 rounded-lg focus:ring-4 focus:outline-none focus:ring-yellow-400 dark:hover:bg-yellow-300 dark:focus:ring-yellow-400"
+        >
+          Webdev
+          <span
+            class="font-mono inline-flex items-center justify-center w-5 h-5 ml-2 text-xs font-semibold text-stone-900 bg-gray-100 dark:bg-stone-900 dark:text-gray-100 rounded-full"
+          >
+            1
+          </span>
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+</main><footer class="p-4 bg-white md:px-6 md:py-6 mt-4 dark:bg-stone-800">
+  <div class="items-center justify-between">
+    <div class="flex mt-4 space-x-6 justify-center sm:mt-0">
+      <a
+        href="https://github.com/bytadit/"
+        target="_blank"
+        class="text-gray-800 dark:text-gray-400 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://id.linkedin.com/in/aditya-bagus-pratama"
+        target="_blank"
+        class="text-blue-700 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+        >
+          <path
+            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="https://twitter.com/bytadit/"
+        target="_blank"
+        class="text-blue-500 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://kaggle.com/bytadit/"
+        target="_blank"
+        class="text-blue-700 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 62 320 512"
+          aria-hidden="true"
+        >
+          
+          <path
+            d="M304.2 501.5L158.4 320.3 298.2 185c2.6-2.7 1.7-10.5-5.3-10.5h-69.2c-3.5 0-7 1.8-10.5 5.3L80.9 313.5V7.5q0-7.5-7.5-7.5H21.5Q14 0 14 7.5v497q0 7.5 7.5 7.5h51.9q7.5 0 7.5-7.5v-109l30.8-29.3 110.5 140.6c3 3.5 6.5 5.3 10.5 5.3h66.9q5.25 0 6-3z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <span class="mt-6 block text-sm text-gray-500 text-center dark:text-gray-400"
+    >© 2022
+    <a href="https://bytadit.me/" class="hover:underline">Bytadit</a>
+  </span>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+
+<script>
+  var themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+  var themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+  
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    themeToggleLightIcon.classList.remove("hidden");
+  } else {
+    themeToggleDarkIcon.classList.remove("hidden");
+  }
+
+  var themeToggleBtn = document.getElementById("theme-toggle");
+  themeToggleBtn.addEventListener("click", function () {
+    
+    themeToggleDarkIcon.classList.toggle("hidden");
+    themeToggleLightIcon.classList.toggle("hidden");
+
+    
+    if (localStorage.getItem("color-theme")) {
+      if (localStorage.getItem("color-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      }
+
+      
+    } else {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      }
+    }
+  });
+</script>
+
+<script>
+  window.onload = function () {
+    var el = document.getElementById("g-recaptcha-response");
+    if (el) {
+      el.setAttribute("required", "required");
+    }
+  };
+</script>
+
+<script>
+  
+
+  
+
+  (function () {
+    
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://bytadit.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+  </body>
+</html>

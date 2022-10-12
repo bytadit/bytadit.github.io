@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Bytadit</title>
+    <link>https://bytadit.me/categories/</link>
+    <description>Recent content in Categories on Bytadit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Oct 2022 10:59:11 +0700</lastBuildDate><atom:link href="https://bytadit.me/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>experience</title>
+      <link>https://bytadit.me/categories/experience/</link>
+      <pubDate>Mon, 10 Oct 2022 10:59:11 +0700</pubDate>
+      
+      <guid>https://bytadit.me/categories/experience/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Development</title>
+      <link>https://bytadit.me/categories/development/</link>
+      <pubDate>Wed, 06 May 2020 21:29:01 +0800</pubDate>
+      
+      <guid>https://bytadit.me/categories/development/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

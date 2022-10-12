@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>journey on Bytadit</title>
+    <link>https://bytadit.me/tags/journey/</link>
+    <description>Recent content in journey on Bytadit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Oct 2022 10:59:11 +0700</lastBuildDate><atom:link href="https://bytadit.me/tags/journey/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Website Journey</title>
+      <link>https://bytadit.me/posts/my-website-journey/</link>
+      <pubDate>Mon, 10 Oct 2022 10:59:11 +0700</pubDate>
+      
+      <guid>https://bytadit.me/posts/my-website-journey/</guid>
+      <description>Hey there!, Adit&amp;rsquo;s here, and this is my first post. I want to share a story of my journey in creating this site, my portfolio website.</description>
+    </item>
+    
+  </channel>
+</rss>

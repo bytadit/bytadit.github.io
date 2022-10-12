@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Bytadit</title>
+    <link>https://bytadit.me/tags/</link>
+    <description>Recent content in Tags on Bytadit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 10 Oct 2022 10:59:11 +0700</lastBuildDate><atom:link href="https://bytadit.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo</title>
+      <link>https://bytadit.me/tags/hugo/</link>
+      <pubDate>Mon, 10 Oct 2022 10:59:11 +0700</pubDate>
+      
+      <guid>https://bytadit.me/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>journey</title>
+      <link>https://bytadit.me/tags/journey/</link>
+      <pubDate>Mon, 10 Oct 2022 10:59:11 +0700</pubDate>
+      
+      <guid>https://bytadit.me/tags/journey/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>webdev</title>
+      <link>https://bytadit.me/tags/webdev/</link>
+      <pubDate>Mon, 10 Oct 2022 10:59:11 +0700</pubDate>
+      
+      <guid>https://bytadit.me/tags/webdev/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>emoji</title>
+      <link>https://bytadit.me/tags/emoji/</link>
+      <pubDate>Thu, 01 Oct 2020 17:55:28 +0800</pubDate>
+      
+      <guid>https://bytadit.me/tags/emoji/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>configuration</title>
+      <link>https://bytadit.me/tags/configuration/</link>
+      <pubDate>Wed, 06 May 2020 21:29:01 +0800</pubDate>
+      
+      <guid>https://bytadit.me/tags/configuration/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>installation</title>
+      <link>https://bytadit.me/tags/installation/</link>
+      <pubDate>Wed, 06 May 2020 21:29:01 +0800</pubDate>
+      
+      <guid>https://bytadit.me/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>https://bytadit.me/tags/markdown/</link>
+      <pubDate>Wed, 06 May 2020 21:29:01 +0800</pubDate>
+      
+      <guid>https://bytadit.me/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>css</title>
+      <link>https://bytadit.me/tags/css/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/tags/css/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>html</title>
+      <link>https://bytadit.me/tags/html/</link>
+      <pubDate>Wed, 19 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/tags/html/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

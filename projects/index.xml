@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Bytadit</title>
+    <link>https://bytadit.me/projects/</link>
+    <description>Recent content in Projects on Bytadit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 08 Oct 2022 17:27:24 +0700</lastBuildDate><atom:link href="https://bytadit.me/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Mantab5</title>
+      <link>https://bytadit.me/projects/mantab5/mantab5/</link>
+      <pubDate>Sat, 08 Oct 2022 17:27:24 +0700</pubDate>
+      
+      <guid>https://bytadit.me/projects/mantab5/mantab5/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arduino</title>
+      <link>https://bytadit.me/projects/arduino/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/projects/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Blüdhaven</title>
+      <link>https://bytadit.me/projects/bludhaven/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/projects/bludhaven/</guid>
+      <description>History Blüdhaven was a former whaling town, which was officially incorporated as a &amp;ldquo;Commonwealth&amp;rdquo; in 1912. The town had a generally poor socio-economic populace, owing in part to failed efforts to transform itself into a manufacturing and shipping center.</description>
+    </item>
+    
+    <item>
+      <title>Blüdhaven</title>
+      <link>https://bytadit.me/projects/data-science/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/projects/data-science/</guid>
+      <description>History Blüdhaven was a former whaling town, which was officially incorporated as a &amp;ldquo;Commonwealth&amp;rdquo; in 1912. The town had a generally poor socio-economic populace, owing in part to failed efforts to transform itself into a manufacturing and shipping center.</description>
+    </item>
+    
+    <item>
+      <title>Hydra</title>
+      <link>https://bytadit.me/projects/hydra/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/projects/hydra/</guid>
+      <description>Motto Cut off one head and two will take their place</description>
+    </item>
+    
+    <item>
+      <title>Tatooine</title>
+      <link>https://bytadit.me/projects/tatooine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://bytadit.me/projects/tatooine/</guid>
+      <description>A long time ago in a galaxy far, far away&amp;hellip;. A project was planned, but never completed</description>
+    </item>
+    
+  </channel>
+</rss>
