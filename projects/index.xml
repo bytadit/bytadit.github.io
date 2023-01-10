@@ -6,59 +6,23 @@
     <description>Recent content in Projects on Bytadit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 08 Oct 2022 17:27:24 +0700</lastBuildDate><atom:link href="https://bytadit.me/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 03 Jan 2023 15:14:07 +0700</lastBuildDate><atom:link href="https://bytadit.me/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Mantab5</title>
-      <link>https://bytadit.me/projects/mantab5/mantab5/</link>
+      <title>Olist Churn Prediction</title>
+      <link>https://bytadit.me/projects/olist-churn-prediction/</link>
+      <pubDate>Tue, 03 Jan 2023 15:14:07 +0700</pubDate>
+      
+      <guid>https://bytadit.me/projects/olist-churn-prediction/</guid>
+      <description>Customer Segmentation and Churn Prediction by Aditya Bagus Pratama (DS03003) Business Understanding Problem Olist adalah department store terbesar di Brasil. Olist menghubungkan pedagang dan pelaku bisnis kecil (UMKM) dari seluruh Brasil ke pelanggan, sehingga pedagang tersebut dapat menjual produk mereka melalui Toko Olist dan mengirimkannya ke pelanggan melalui mitra logistik Olist.</description>
+    </item>
+    
+    <item>
+      <title>Wine Quality Analysis</title>
+      <link>https://bytadit.me/projects/wine-quality-analysis/</link>
       <pubDate>Sat, 08 Oct 2022 17:27:24 +0700</pubDate>
       
-      <guid>https://bytadit.me/projects/mantab5/mantab5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Arduino</title>
-      <link>https://bytadit.me/projects/arduino/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytadit.me/projects/arduino/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Blüdhaven</title>
-      <link>https://bytadit.me/projects/bludhaven/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytadit.me/projects/bludhaven/</guid>
-      <description>History Blüdhaven was a former whaling town, which was officially incorporated as a &amp;ldquo;Commonwealth&amp;rdquo; in 1912. The town had a generally poor socio-economic populace, owing in part to failed efforts to transform itself into a manufacturing and shipping center.</description>
-    </item>
-    
-    <item>
-      <title>Blüdhaven</title>
-      <link>https://bytadit.me/projects/data-science/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytadit.me/projects/data-science/</guid>
-      <description>History Blüdhaven was a former whaling town, which was officially incorporated as a &amp;ldquo;Commonwealth&amp;rdquo; in 1912. The town had a generally poor socio-economic populace, owing in part to failed efforts to transform itself into a manufacturing and shipping center.</description>
-    </item>
-    
-    <item>
-      <title>Hydra</title>
-      <link>https://bytadit.me/projects/hydra/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytadit.me/projects/hydra/</guid>
-      <description>Motto Cut off one head and two will take their place</description>
-    </item>
-    
-    <item>
-      <title>Tatooine</title>
-      <link>https://bytadit.me/projects/tatooine/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://bytadit.me/projects/tatooine/</guid>
-      <description>A long time ago in a galaxy far, far away&amp;hellip;. A project was planned, but never completed</description>
+      <guid>https://bytadit.me/projects/wine-quality-analysis/</guid>
+      <description>Wine Quality Data Analysis Importing Libraries import pandas as pd import matplotlib.pyplot as plt import numpy as np import seaborn as sns sns.</description>
     </item>
     
   </channel>
