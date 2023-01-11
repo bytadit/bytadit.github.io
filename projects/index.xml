@@ -6,7 +6,16 @@
     <description>Recent content in Projects on Bytadit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 03 Jan 2023 15:14:07 +0700</lastBuildDate><atom:link href="https://bytadit.me/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Jan 2023 12:46:07 +0700</lastBuildDate><atom:link href="https://bytadit.me/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analisis Probabilitas Churn Customer</title>
+      <link>https://bytadit.me/projects/customer-churn-probability/</link>
+      <pubDate>Tue, 10 Jan 2023 12:46:07 +0700</pubDate>
+      
+      <guid>https://bytadit.me/projects/customer-churn-probability/</guid>
+      <description>Olist adalah sebuah perusahaan Online Marketplace yang mengubungkan antara pedagang dan pelaku bisnis kecil (UMKM) dengan pembeli melalui transaksi secara online di aplikasi mereka.</description>
+    </item>
+    
     <item>
       <title>Olist Churn Prediction</title>
       <link>https://bytadit.me/projects/olist-churn-prediction/</link>

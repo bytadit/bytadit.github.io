@@ -59,8 +59,8 @@
   
 <link
   rel="stylesheet"
-  href="/css/output.min.24e869952d0d62beef3dc8dfd0198483cf0eed52af3dacccb1222d63bdbc28c5.css"
-  integrity="sha256-JOhplS0NYr7vPcjf0BmEg88O7VKvPazMsSItY728KMU="
+  href="/css/output.min.863518c26c6534afea3c73f9a89d38dd28abffade8280f48ada7bd0fac7e996f.css"
+  integrity="sha256-hjUYwmxlNK/qPHP5qJ043Sir/63oKA9Irae9D6x+mW8="
 />
 
 
@@ -245,9 +245,9 @@
   </nav>
 </section>
 
-    <main class="flex-1 mx-4">   <div class="p-2 mt-4 mb-8 md:mx-20 md:px-32 lg:px-40 lg:mx-28">
+    <main class="flex-1 xs:mx-4 lg:mx-0">   <div class="p-2 mt-4 mb-8 md:mx-20 md:px-32 lg:px-40 lg:mx-28">
   <article
-    class="relative prose lg:prose-xl prose-slate dark:prose-invert prose-headings:font-sans prose-headings:tracking-tight prose-p:font-sans prose-ol:font-sans prose-ul:font-sans prose-pre:dark:border prose-pre:dark:border-slate-700"
+    class="mx-auto relative prose lg:prose-xl prose-slate dark:prose-invert prose-headings:font-sans prose-headings:tracking-tight prose-p:font-sans prose-ol:font-sans prose-ul:font-sans prose-pre:dark:border prose-pre:dark:border-slate-700"
   >
     <header class="not-prose my-8 lg:my-20">
       <h1
@@ -447,5 +447,31 @@
   })();
 </script>
 
+<script>
+  const project_page = document.getElementById("project-page");
+  const openbtn = document.getElementById("openbtn");
+  const myTOC = document.getElementById("myTOC");
+
+  function showTOC() {
+    project_page.classList.remove("col-span-4");
+    project_page.classList.add("col-span-3");
+    project_page.classList.remove("mx-auto");
+    project_page.classList.remove("lg:w-2/3");
+    openbtn.classList.remove("lg:block");
+    myTOC.classList.remove("hidden");
+    myTOC.classList.add("block");
+    myTOC.style.animationDuration = "1s";
+  }
+  function closeTOC() {
+    project_page.classList.remove("col-span-3");
+    project_page.classList.add("col-span-4");
+    project_page.classList.add("lg:w-2/3");
+    project_page.classList.add("mx-auto");
+    openbtn.classList.add("lg:block");
+    myTOC.classList.remove("block");
+    myTOC.classList.add("hidden");
+    myTOC.style.animationDuration = "1s";
+  }
+</script>
   </body>
 </html>

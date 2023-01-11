@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth transition-all max-h-screen">
+  <head><meta charset="utf-8" />
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1"
+/>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, maximum-scale=5"
+/>
+<meta name="author" content="Aditya Bagus Pratama" />
+     
+
+
+<title>Analisis Probabilitas Churn Customer</title>
+<meta name="description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce" />
+<meta name="keywords" content='blog, ideal, hugo' />
+<meta property="og:url" content="https://bytadit.me/projects/customer-churn-probability/" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Analisis Probabilitas Churn Customer" />
+<meta property="og:description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce" />
+<meta property="og:image" content="/images/profile.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Analisis Probabilitas Churn Customer" />
+<meta name="twitter:description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce" />
+<meta property="twitter:domain" content="https://bytadit.me/projects/customer-churn-probability/" />
+<meta property="twitter:url" content="https://bytadit.me/projects/customer-churn-probability/" />
+<meta name="twitter:image" content="/images/profile.png" />
+<meta itemprop="name" content="Analisis Probabilitas Churn Customer">
+<meta itemprop="description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce"><meta itemprop="datePublished" content="2023-01-10T12:46:07+07:00" />
+<meta itemprop="dateModified" content="2023-01-10T12:46:07+07:00" />
+<meta itemprop="wordCount" content="765">
+<meta itemprop="keywords" content="" /> <meta property="og:title" content="Analisis Probabilitas Churn Customer" />
+<meta property="og:description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bytadit.me/projects/customer-churn-probability/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2023-01-10T12:46:07+07:00" />
+<meta property="article:modified_time" content="2023-01-10T12:46:07+07:00" />
+ <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Analisis Probabilitas Churn Customer"/>
+<meta name="twitter:description" content="Analisis Probabilitas Churn Customer pada Dataset Brazilian Olist Ecommerce"/>
+
+<link rel="canonical" href="https://bytadit.me/projects/customer-churn-probability/" />
+
+
+
+<link rel="icon" href="https://bytadit.me//img/logo.svg" />
+
+
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/flowbite@1.4.7/dist/flowbite.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+/>
+  
+<link
+  rel="stylesheet"
+  href="/css/output.min.863518c26c6534afea3c73f9a89d38dd28abffade8280f48ada7bd0fac7e996f.css"
+  integrity="sha256-hjUYwmxlNK/qPHP5qJ043Sir/63oKA9Irae9D6x+mW8="
+/>
+
+
+<script>
+  
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+</script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+     <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.css" integrity="sha384-6LkG2wmY8FK9E0vU9OOr8UvLwsaqUg9SETfpq4uTCN1agNe8HRdE9ABlk+fVx6gZ" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/katex.min.js" integrity="sha384-31El76TwmbHj4rF9DyLsygbq6xoIobG0W+jqXim+a3dU9W53tdH3A/ngRPxOzzaB" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.16/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+   
+</head>
+  <body class="dark:bg-stone-800 bg-white"><section
+  class="sticky top-0 navigation bg-gray-100 border-b-2 border-gray-200 dark:border-neutral-800 dark:bg-stone-900 sm:py-1.5 z-10"
+>
+  <nav
+    class="bg-gray-100 px-2 sm:px-4 py-1.5 dark:bg-stone-900 md:mx-12 lg:mx-24 transition-all"
+    id="navbar"
+  >
+    <div
+      class="container mx-auto md:px-6 flex flex-wrap items-center justify-between"
+      id="nav-container"
+    >
+      
+      <a href="https://bytadit.me/" class="flex md:hidden">
+        <img class="h-8" src="/images/byt-logo-yell.svg" alt="site-logo" />
+
+        <span
+          class="self-center text-lg font-semibold whitespace-nowrap dark:text-white"
+          >Bytadit</span
+        >
+      </a>
+      
+      <div class="flex md:order-3 px-5">
+        
+        <button
+          id="theme-toggle"
+          type="button"
+          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-stone-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-stone-800 rounded-full text-sm p-2.5 ml-3"
+        >
+          <svg
+            id="theme-toggle-dark-icon"
+            class="w-5 h-5 hidden"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+            ></path>
+          </svg>
+          <svg
+            id="theme-toggle-light-icon"
+            class="w-5 h-5 hidden"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+
+        
+        <button
+          data-collapse-toggle="mobile-menu-4"
+          type="button"
+          class="md:hidden text-gray-500 hover:bg-gray-100focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-full text-sm p-2 ml-3 inline-flex items-center dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-stone-800"
+          aria-controls="mobile-menu-4"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <svg
+            class="hidden w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div
+        class="hidden md:flex items-center w-full md:w-auto md:order-2"
+        id="mobile-menu-4"
+      >
+        
+        <ul
+          class="navbar-nav flex-col md:flex-row flex md:space-x-8 my-4 sm:mb-0 sm:mt-4 md:mt-0 md:text-md md:font-medium"
+        >
+          
+          <li class="list">
+            <a
+              href="/#home"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Home </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/projects/"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Projects </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/posts/"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Posts </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/#contact"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > Contact </a
+            >
+          </li>
+          
+          <li class="list">
+            <a
+              href="/about"
+              class="text-gray-800 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:underline md:hover:decoration-yellow-300 md:hover:decoration-4 md:p-0 md:dark:hover:text-white dark:text-gray-100 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+              > About </a
+            >
+          </li>
+          
+        </ul>
+      </div>
+      
+      <div
+        class="hidden md:flex justify-between items-center w-full md:w-auto md:order-1"
+        id="mobile-menu-4"
+      >
+        
+        <a href="https://bytadit.me/" class="hidden md:flex mr-10">
+          <img class="h-8" src="/images/byt-logo-yell.svg" alt="site-logo" />
+          <span
+            class="self-center text-lg font-semibold whitespace-nowrap dark:text-white"
+            >Bytadit</span
+          >
+        </a>
+      </div>
+    </div>
+  </nav>
+</section>
+
+    <main class="flex-1 xs:mx-4 lg:mx-0">    <button onclick="showTOC()" id="openbtn" title="Table Of Content" class="hidden lg:block fixed z-90 bottom-10 right-16 border-gray-300 border-2 dark:border-yellow-300 p-2 rounded-xl justify-center items-center hover:bg-gray-100 text-dark dark:text-yellow-300 dark:hover:bg-yellow-300 dark:hover:text-stone-900 text-sm font-bold">Show TOC</button>
+
+  <div class="grid grid-cols-4 my-4 mb:my-8 lg:my-16">
+    <div class="col-span-4 p-2 container mx-auto px-4 lg:px-20 w-full lg:w-2/3" id="project-page">
+      <article
+        class="relative prose max-w-none m-0 prose-slate dark:prose-invert prose-headings:font-sans prose-headings:tracking-tight prose-p:font-sans prose-ol:font-sans prose-ul:font-sans prose-pre:dark:border prose-pre:dark:border-slate-700"
+      >
+        <header class="not-prose my-8 lg:my-20">
+          
+          <h1
+            class="text-center text-3xl md:text-4xl lg:text-5xl font-black mt-8 lg:mt-14 mb-6 lg leading-tight tracking-tight"
+          >
+            Analisis Probabilitas Churn Customer
+          </h1>
+          <div
+            class="container mx-auto mb-2 flex flex-wrap items-center justify-center"
+          >
+            <div class="mb-4 mr-2 flex items-center justify-center gap-2 text-base">
+              <span> by </span>
+            </div>
+            <div class="mb-4 mr-2 flex items-center justify-center gap-2 text-base">
+              Aditya Bagus Pratama
+            </div>
+            <div class="mb-4 mr-2 flex items-center justify-center gap-2 text-base">
+              <span> at </span>
+            </div>
+            <div class="mb-4 mr-2 flex items-center justify-center gap-2 text-base">
+              <div class="flex items-center gap-2 text-base">
+                10 January 2023
+              </div>
+            </div>
+          </div>
+        </header>
+        
+        <figure class="not-prose mb-2">
+          
+        </figure>
+        <div class="leading-8 tracking-wide dark:prose-invert text-justify">
+          <p>Olist adalah sebuah perusahaan Online Marketplace yang mengubungkan antara pedagang dan pelaku bisnis kecil (UMKM) dengan pembeli melalui transaksi secara online di aplikasi mereka. Pada project ini saya akan menerapkan metode CRISP-DM untuk melakukan <strong>Analisis Probabilitas Churn Customer</strong> melalui dataset &ldquo;Brazilian E-Commerce Public Dataset by Olist&rdquo; yang telah tersedia di link <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce">kaggle</a> berikut.</p>
+<h2 id="business-understanding">Business Understanding</h2>
+<h3 id="problem-statement">Problem Statement</h3>
+<p>Berdasarkan dataset order pada tahun 2016-2018, Olist ingin mengetahui segmentasi pelanggan dan bagaimana pelanggan bisa dikelompokkan. Olist juga ingin mengetahui bagaimana probabilitas churn dari pelanggan. Olist perlu tahu hal ini, untuk menentukan strategi treatment customer yang tepat terutama untuk customer yang berpotensi churn. Strategi untuk mempertahankan pelanggan tetap lebih diutamakan, karena biayanya akan lebih murah dibandingkan biaya untuk mengacquire pelanggan baru.</p>
+<h3 id="goal">Goal</h3>
+<ul>
+<li>Mengidentifikasi segmen dan kluster pelanggan berdasarkan nilai Recency (Jangka waktu sejak transaksi terakhir), Frequency (Banyaknya transaksi yang dilakukan oleh pelanggan), dan Monetary (Jumlah uang yang dikeluarkan pelanggan dari seluruh transaksi yang pernah dilakukan).</li>
+<li>Memprediksi probabilitas churn pelanggan, sehingga Olist bisa menentukan treatment dan strategi yang tepat untuk mempertahankan pelanggan tetap.</li>
+</ul>
+<h3 id="objectives">Objectives</h3>
+<p>Membuat model machine learning untuk memprediksi dan mengklasifikasikan apakah pelanggan berpotensi churn atau tidak, serta melakukan segmentasi pelanggan dengan RFM Analysis dan Clustering dengan K-Means untuk mengelompokkan pelanggan berdasarkan karakteristik tertentu.</p>
+<h2 id="data-understanding">Data Understanding</h2>
+<h3 id="data-scheme">Data Scheme</h3>
+<p>Data secara keseluruhan terbagi menjadi beberapa file csv, untuk memudahkan pemahaman dan organisasi data. Silakan lihat skema data berikut ini:
+<img src="https://i.imgur.com/HRhd2Y0.png" alt="Data Scheme">
+Data dalam bentuk file csv di load menggunakan pandas, kemudian disimpan dalam variables</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>raw_path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;/content/&#39;</span>
+</span></span><span style="display:flex;"><span>customers <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_customers_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>geolocations <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_geolocation_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>orders <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_orders_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>order_items <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_order_items_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>order_payments <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_order_payments_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>order_reviews <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_order_reviews_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>products <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_products_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>sellers <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;olist_sellers_dataset.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>translate <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(raw_path <span style="color:#f92672">+</span> <span style="color:#e6db74">&#39;product_category_name_translation.csv&#39;</span>)
+</span></span></code></pre></div><p>Saya membuat sebuah function baru <strong>&ldquo;resumetable&rdquo;</strong> untuk membantu mempermudah summary data</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">resumetable</span>(df):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Dataset Shape: </span><span style="color:#e6db74">{</span>df<span style="color:#f92672">.</span>shape<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span><span style="display:flex;"><span>    summary <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(df<span style="color:#f92672">.</span>dtypes,columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;dtypes&#39;</span>])
+</span></span><span style="display:flex;"><span>    summary <span style="color:#f92672">=</span> summary<span style="color:#f92672">.</span>reset_index()
+</span></span><span style="display:flex;"><span>    summary[<span style="color:#e6db74">&#39;Name&#39;</span>] <span style="color:#f92672">=</span> summary[<span style="color:#e6db74">&#39;index&#39;</span>]
+</span></span><span style="display:flex;"><span>    summary <span style="color:#f92672">=</span> summary[[<span style="color:#e6db74">&#39;Name&#39;</span>,<span style="color:#e6db74">&#39;dtypes&#39;</span>]]
+</span></span><span style="display:flex;"><span>    summary[<span style="color:#e6db74">&#39;Missing&#39;</span>] <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>    summary[<span style="color:#e6db74">&#39;Uniques&#39;</span>] <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>nunique()<span style="color:#f92672">.</span>values
+</span></span><span style="display:flex;"><span>    summary[<span style="color:#e6db74">&#39;Missing Percentage&#39;</span>] <span style="color:#f92672">=</span> (df<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()<span style="color:#f92672">.</span>values<span style="color:#f92672">/</span>len(df))
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># summary[&#39;index&#39;].drop()</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> summary<span style="color:#f92672">.</span>sort_values([<span style="color:#e6db74">&#39;Missing Percentage&#39;</span>], ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)<span style="color:#f92672">.</span>reset_index()
+</span></span></code></pre></div><h3 id="customers-dataset">Customers Dataset</h3>
+<p>Dataset/table customers memuat informasi mengenai customer dan lokasinya (zip_code, state, city). Dataset ini juga memiliki kolom ‘customer_unique_id’, dan customer_id. Kolom customer_unique_id merupakan data id customer yang unik (mewakili tiap customer), sedangkan customer_id merupakan kolom id customer yang berbeda di tiap order yang dilakukan. Hal ini memungkinkan terdapat banyak data customer_unique_id yang duplikat pada table customer ini, karena customer_unique_id bisa digunakan oleh beberapa customer_id (beberapa order oleh customer yang sama).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resumetable(customers)
+</span></span></code></pre></div><p><code>Dataset Shape: (99441, 5)</code></p>
+<div>
+    <div class="colab-df-container">
+        <div style="overflow-x:auto;">
+            <style scoped>
+                .dataframe tbody tr th:only-of-type {
+                    vertical-align: middle;
+                    }
+                .dataframe tbody tr th {
+                    vertical-align: top;
+                    }
+                .dataframe thead th {
+                    text-align: right;
+                    }
+            </style>
+            <table border="1" class="dataframe">
+                <thead>
+                    <tr style="text-align: right;">
+                    <th></th>
+                    <th>index</th>
+                    <th>Name</th>
+                    <th>dtypes</th>
+                    <th>Missing</th>
+                    <th>Uniques</th>
+                    <th>Missing Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th>0</th>
+                    <td>0</td>
+                    <td>customer_id</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>99441</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>customer_unique_id</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>96096</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>2</th>
+                    <td>2</td>
+                    <td>customer_zip_code_prefix</td>
+                    <td>int64</td>
+                    <td>0</td>
+                    <td>14994</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>3</th>
+                    <td>3</td>
+                    <td>customer_city</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>4119</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>4</th>
+                    <td>4</td>
+                    <td>customer_state</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>27</td>
+                    <td>0.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<h3 id="geolocations-dataset">Geolocations Dataset</h3>
+<p>Dataset/Table ini memuat informasi tentang zip codes, state, city yang ada di Brazil beserta latitude dan longitudenya.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resumetable(geolocations)
+</span></span></code></pre></div><p><code>Dataset Shape: (1000163, 5)</code></p>
+<div>
+    <div class="colab-df-container">
+        <div style="overflow-x:auto;">
+            <style scoped>
+                .dataframe tbody tr th:only-of-type {
+                    vertical-align: middle;
+                    }
+                .dataframe tbody tr th {
+                    vertical-align: top;
+                    }
+                .dataframe thead th {
+                    text-align: right;
+                    }
+            </style>
+            <table border="1" class="dataframe">
+                <thead>
+                    <tr style="text-align: right;">
+                    <th></th>
+                    <th>index</th>
+                    <th>Name</th>
+                    <th>dtypes</th>
+                    <th>Missing</th>
+                    <th>Uniques</th>
+                    <th>Missing Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th>0</th>
+                    <td>0</td>
+                    <td>geolocation_zip_code_prefix</td>
+                    <td>int64</td>
+                    <td>0</td>
+                    <td>19015</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>1</th>
+                    <td>1</td>
+                    <td>geolocation_lat</td>
+                    <td>float64</td>
+                    <td>0</td>
+                    <td>717360</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>2</th>
+                    <td>2</td>
+                    <td>geolocation_lng</td>
+                    <td>float64</td>
+                    <td>0</td>
+                    <td>717613</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>3</th>
+                    <td>3</td>
+                    <td>geolocation_city</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>8011</td>
+                    <td>0.0</td>
+                    </tr>
+                    <tr>
+                    <th>4</th>
+                    <td>4</td>
+                    <td>geolocation_state</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>27</td>
+                    <td>0.0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<h3 id="orders-dataset">Orders Dataset</h3>
+<p>Ini adalah dataset utama, dimana memuat semua informasi tentang order</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resumetable(orders)
+</span></span></code></pre></div><p><code>Dataset Shape: (99441, 8)</code></p>
+<div>
+    <div class="colab-df-container">
+        <div style="overflow-x:auto;">
+            <style scoped>
+                .dataframe tbody tr th:only-of-type {
+                    vertical-align: middle;
+                    }
+                .dataframe tbody tr th {
+                    vertical-align: top;
+                    }
+                .dataframe thead th {
+                    text-align: right;
+                    }
+            </style>
+           <table border="1" class="dataframe">
+                <thead>
+                    <tr style="text-align: right;">
+                    <th></th>
+                    <th>index</th>
+                    <th>Name</th>
+                    <th>dtypes</th>
+                    <th>Missing</th>
+                    <th>Uniques</th>
+                    <th>Missing Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                    <th>0</th>
+                    <td>6</td>
+                    <td>order_delivered_customer_date</td>
+                    <td>object</td>
+                    <td>2965</td>
+                    <td>95664</td>
+                    <td>0.029817</td>
+                    </tr>
+                    <tr>
+                    <th>1</th>
+                    <td>5</td>
+                    <td>order_delivered_carrier_date</td>
+                    <td>object</td>
+                    <td>1783</td>
+                    <td>81018</td>
+                    <td>0.017930</td>
+                    </tr>
+                    <tr>
+                    <th>2</th>
+                    <td>4</td>
+                    <td>order_approved_at</td>
+                    <td>object</td>
+                    <td>160</td>
+                    <td>90733</td>
+                    <td>0.001609</td>
+                    </tr>
+                    <tr>
+                    <th>3</th>
+                    <td>0</td>
+                    <td>order_id</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>99441</td>
+                    <td>0.000000</td>
+                    </tr>
+                    <tr>
+                    <th>4</th>
+                    <td>1</td>
+                    <td>customer_id</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>99441</td>
+                    <td>0.000000</td>
+                    </tr>
+                    <tr>
+                    <th>5</th>
+                    <td>2</td>
+                    <td>order_status</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>0.000000</td>
+                    </tr>
+                    <tr>
+                    <th>6</th>
+                    <td>3</td>
+                    <td>order_purchase_timestamp</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>98875</td>
+                    <td>0.000000</td>
+                    </tr>
+                    <tr>
+                    <th>7</th>
+                    <td>7</td>
+                    <td>order_estimated_delivery_date</td>
+                    <td>object</td>
+                    <td>0</td>
+                    <td>459</td>
+                    <td>0.000000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ul>
+<li><code>order_delivered_customer_date</code> adalah waktu pesanan sampai di customer</li>
+<li><code>order_delivered_carrier_date</code> adalah waktu dimana order telah diteruskan seller dan diterima kurir</li>
+<li><code>order_approved_at</code> adalah waktu dimana pesanan dari customer diterima oleh seller adn mulai diproses.</li>
+<li><code>order_purchase_timestamp</code> adalah waktu dimana customer membuat pesanan</li>
+<li><code>order_estimated_delivery_date</code> adalah waktu pesanan diperkirakan akan sampai di tangan customer sejak customer melakukan pemesanan</li>
+<li><code>order_status</code> adalah status pengiriman, apakah dikirim, sampai, batal, dll</li>
+</ul>
+<h3 id="order-items-dataset">Order Items Dataset</h3>
+<p>Dataset ini memuat informasi tentang barang yang dibeli pada tiap order.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>resumetable(order_items)
+</span></span></code></pre></div><p><code>Dataset Shape: (112650, 7)</code></p>
+<div>
+    <div class="colab-df-container">
+        <div style="overflow-x:auto;">
+            <style scoped>
+                .dataframe tbody tr th:only-of-type {
+                    vertical-align: middle;
+                    }
+                .dataframe tbody tr th {
+                    vertical-align: top;
+                    }
+                .dataframe thead th {
+                    text-align: right;
+                    }
+            </style>
+            <table border="1" class="dataframe">
+            <thead>
+                <tr style="text-align: right;">
+                <th></th>
+                <th>index</th>
+                <th>Name</th>
+                <th>dtypes</th>
+                <th>Missing</th>
+                <th>Uniques</th>
+                <th>Missing Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th>0</th>
+                <td>0</td>
+                <td>order_id</td>
+                <td>object</td>
+                <td>0</td>
+                <td>98666</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>1</th>
+                <td>1</td>
+                <td>order_item_id</td>
+                <td>int64</td>
+                <td>0</td>
+                <td>21</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>2</th>
+                <td>2</td>
+                <td>product_id</td>
+                <td>object</td>
+                <td>0</td>
+                <td>32951</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>3</th>
+                <td>3</td>
+                <td>seller_id</td>
+                <td>object</td>
+                <td>0</td>
+                <td>3095</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>4</th>
+                <td>4</td>
+                <td>shipping_limit_date</td>
+                <td>object</td>
+                <td>0</td>
+                <td>93318</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>5</th>
+                <td>5</td>
+                <td>price</td>
+                <td>float64</td>
+                <td>0</td>
+                <td>5968</td>
+                <td>0.0</td>
+                </tr>
+                <tr>
+                <th>6</th>
+                <td>6</td>
+                <td>freight_value</td>
+                <td>float64</td>
+                <td>0</td>
+                <td>6999</td>
+                <td>0.0</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<ul>
+<li><code>shipping_limit_date</code> adalah batas waktu pengiriman, dimana seller harus memproses pesanan dan mengirimkan barang sebelum batas waktu tersebut.</li>
+<li><code>price</code> adalah harga tiap item produk</li>
+<li><code>freight_value</code> adalah nilai ongkos kirim, didapat berdasarkan berat barang, dan volume barang</li>
+</ul>
+
+        </div>
+        <nav class="flex flex-row justify-end gap-4 items-center">
+          <span
+            class="inline-flex text-base italic p-1 justify-center items-center text-slate-600 dark:text-slate-100"
+            >share to :
+          </span>
+          <a
+            class="inline-flex p-1 justify-center items-center rounded-full text-slate-600 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-50/25 active:scale-95 transition-all"
+            aria-label="Share to Facebook"
+            href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fbytadit.me%2fprojects%2fcustomer-churn-probability%2f"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="currentcolor"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Share to Facebook</title>
+              <path
+                d="M24 12C24 5.37187 18.6281.0 12 0 5.37187.0.0 5.37187.0 12c0 6.6281 5.37187 12 12 12C12.0703 24 12.1406 24 12.2109 23.9953V14.6578H9.63281V11.6531H12.2109V9.44063c0-2.56407 1.5657-3.96094 3.8532-3.96094 1.0968.0 2.039.0796900000000003 2.3109.11719V8.27812H16.8C15.5578 8.27812 15.3141 8.86875 15.3141 9.73594V11.6484h2.9765L17.9016 14.6531H15.3141v8.8828C20.3297 22.0969 24 17.4797 24 12z"
+                fill="currentcolor"
+              ></path>
+            </svg>
+          </a>
+          <a
+            class="inline-flex p-1 justify-center items-center rounded-full text-slate-600 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-50/25 active:scale-95 transition-all"
+            aria-label="Share to Twitter"
+            href="http://twitter.com/intent/tweet?text=Analisis%20Probabilitas%20Churn%20Customer&url=https%3a%2f%2fbytadit.me%2fprojects%2fcustomer-churn-probability%2f"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Share to Twitter</title>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 12C0 5.3736 5.3736.0 12 0S24 5.3736 24 12 18.6264 24 12 24 0 18.6264.0 12zM17.4869 9.71228C17.4869 9.59308 17.4844 9.47443 17.4791 9.35632 18.0168 8.96759 18.4843 8.48236 18.8529 7.92993 18.3594 8.14929 17.8284 8.29706 17.2712 8.36371 17.84 8.02258 18.2765 7.48315 18.4825 6.84027 17.9502 7.15576 17.361 7.38501 16.7335 7.50879 16.2308 6.97339 15.5153 6.63849 14.723 6.63849c-1.5211.0-2.7547 1.23358-2.7547 2.75409C11.9683 9.60864 11.9927 9.81885 12.0399 10.0206 9.75073 9.90546 7.72083 8.80939 6.36255 7.14276c-.23657.40704-.37299.87982-.37299 1.38446C5.98956 9.48285 6.47571 10.3264 7.21527 10.8199 6.76337 10.806 6.33893 10.6818 5.96777 10.4755 5.96741 10.487 5.96741 10.4982 5.96741 10.5106c0 1.3338.9494 2.4476 2.20971 2.6999C7.94568 13.2737 7.70215 13.3076 7.45074 13.3076 7.27368 13.3076 7.10101 13.29 6.93311 13.2578c.35083 1.0944 1.36743 1.8907 2.57318 1.913C8.56348 15.9097 7.37585 16.3499 6.08533 16.3499 5.86322 16.3499 5.64386 16.3372 5.42834 16.3118 6.64728 17.0931 8.09473 17.549 9.65021 17.549 14.7166 17.5488 17.4869 13.3519 17.4869 9.71228z"
+                fill="currentcolor"
+              ></path>
+            </svg>
+          </a>
+          <a
+            class="inline-flex p-1 justify-center items-center rounded-full text-slate-600 dark:text-slate-100 hover:bg-slate-200 dark:hover:bg-slate-50/25 active:scale-95 transition-all"
+            aria-label="Share to LinkedIn"
+            href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fbytadit.me%2fprojects%2fcustomer-churn-probability%2f&title=&summary=&source="
+            target="_blank"
+            rel="noopener"
+          >
+            <svg
+              class="h-6 w-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>Share to Linkedin</title>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M0 12C0 5.3736 5.3736.0 12 0S24 5.3736 24 12 18.6264 24 12 24 0 18.6264.0 12zm5.59039 6.1406H8.51294V9.34808H5.59039V18.1406zM7.05176 8.14746H7.03271C6.052 8.14746 5.41772 7.47235 5.41772 6.6286c0-.86279.65369-1.51922 1.65345-1.51922C8.07092 5.10938 8.68616 5.76581 8.7052 6.6286c0 .84375-.63428 1.51886-1.65344 1.51886zM16.1288 18.1406H19.051V13.099c0-2.7006-1.4417-3.95728-3.3645-3.95728C14.1359 9.14172 13.441 9.9939 13.0527 10.593V9.34808H10.1303C10.1686 10.173 10.1303 18.1406 10.1303 18.1406h2.9224V13.2305C13.0527 12.9677 13.0715 12.7051 13.1488 12.5173c.2113-.525.6921-1.0688 1.4995-1.0688 1.0574.0 1.4805.806200000000001 1.4805 1.9883v4.7038z"
+                fill="currentcolor"
+              ></path>
+            </svg>
+          </a>
+        </nav>
+      </article>
+    </div>
+
+    <div id="myTOC" class="hidden sticky h-screen container col-span-1 flex flex-col w-full top-0 pt-20 bottom-4 right-0 hidden">
+      
+        <button class="sticky mx-auto justify-center text-md font-bold dark:text-yellow-300 flex w-full top-0 dark:border-yellow-300 border-b-4 dark:hover:text-white p-2" id="closebtn" onclick="closeTOC()">
+          Close TOC
+        </button>
+        <div class="flex prose-sm overflow-y-scroll h-full w-full text-dark dark:text-white text-md">
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#business-understanding">Business Understanding</a>
+          <ul>
+            <li><a href="#problem-statement">Problem Statement</a></li>
+            <li><a href="#goal">Goal</a></li>
+            <li><a href="#objectives">Objectives</a></li>
+          </ul>
+        </li>
+        <li><a href="#data-understanding">Data Understanding</a>
+          <ul>
+            <li><a href="#data-scheme">Data Scheme</a></li>
+            <li><a href="#customers-dataset">Customers Dataset</a></li>
+            <li><a href="#geolocations-dataset">Geolocations Dataset</a></li>
+            <li><a href="#orders-dataset">Orders Dataset</a></li>
+            <li><a href="#order-items-dataset">Order Items Dataset</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+      
+    </div>
+  </div>
+
+  </main><footer class="p-4 bg-white md:px-6 md:py-6 mt-4 dark:bg-stone-800">
+  <div class="items-center justify-between">
+    <div class="flex mt-4 space-x-6 justify-center sm:mt-0">
+      <a
+        href="https://github.com/bytadit/"
+        target="_blank"
+        class="text-gray-800 dark:text-gray-400 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://id.linkedin.com/in/aditya-bagus-pratama"
+        target="_blank"
+        class="text-blue-700 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 448 512"
+        >
+          <path
+            d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+          ></path>
+        </svg>
+      </a>
+      <a
+        href="https://twitter.com/bytadit/"
+        target="_blank"
+        class="text-blue-500 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
+          <path
+            d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+          />
+        </svg>
+      </a>
+      <a
+        href="https://kaggle.com/bytadit/"
+        target="_blank"
+        class="text-blue-700 dark:hover:text-white"
+      >
+        <svg
+          class="w-6 h-6"
+          fill="currentColor"
+          viewBox="0 62 320 512"
+          aria-hidden="true"
+        >
+          
+          <path
+            d="M304.2 501.5L158.4 320.3 298.2 185c2.6-2.7 1.7-10.5-5.3-10.5h-69.2c-3.5 0-7 1.8-10.5 5.3L80.9 313.5V7.5q0-7.5-7.5-7.5H21.5Q14 0 14 7.5v497q0 7.5 7.5 7.5h51.9q7.5 0 7.5-7.5v-109l30.8-29.3 110.5 140.6c3 3.5 6.5 5.3 10.5 5.3h66.9q5.25 0 6-3z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <span class="mt-6 block text-sm text-gray-500 text-center dark:text-gray-400"
+    >© 2023
+    <a href="https://bytadit.me/" class="hover:underline">Bytadit</a>
+  </span>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.6.0.min.js"
+  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+  crossorigin="anonymous"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+
+
+<script src="https://unpkg.com/flowbite@1.4.7/dist/flowbite.js"></script>
+
+<script>
+  var themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
+  var themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
+  
+  if (
+    localStorage.getItem("color-theme") === "dark" ||
+    (!("color-theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    themeToggleLightIcon.classList.remove("hidden");
+  } else {
+    themeToggleDarkIcon.classList.remove("hidden");
+  }
+
+  var themeToggleBtn = document.getElementById("theme-toggle");
+  themeToggleBtn.addEventListener("click", function () {
+    
+    themeToggleDarkIcon.classList.toggle("hidden");
+    themeToggleLightIcon.classList.toggle("hidden");
+
+    
+    if (localStorage.getItem("color-theme")) {
+      if (localStorage.getItem("color-theme") === "light") {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      }
+
+      
+    } else {
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+        localStorage.setItem("color-theme", "light");
+      } else {
+        document.documentElement.classList.add("dark");
+        localStorage.setItem("color-theme", "dark");
+      }
+    }
+  });
+</script>
+
+<script>
+  window.onload = function () {
+    var el = document.getElementById("g-recaptcha-response");
+    if (el) {
+      el.setAttribute("required", "required");
+    }
+  };
+</script>
+
+<script>
+  
+
+  
+
+  (function () {
+    
+    var d = document,
+      s = d.createElement("script");
+    s.src = "https://bytadit.disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<script>
+  const project_page = document.getElementById("project-page");
+  const openbtn = document.getElementById("openbtn");
+  const myTOC = document.getElementById("myTOC");
+
+  function showTOC() {
+    project_page.classList.remove("col-span-4");
+    project_page.classList.add("col-span-3");
+    project_page.classList.remove("mx-auto");
+    project_page.classList.remove("lg:w-2/3");
+    openbtn.classList.remove("lg:block");
+    myTOC.classList.remove("hidden");
+    myTOC.classList.add("block");
+    myTOC.style.animationDuration = "1s";
+  }
+  function closeTOC() {
+    project_page.classList.remove("col-span-3");
+    project_page.classList.add("col-span-4");
+    project_page.classList.add("lg:w-2/3");
+    project_page.classList.add("mx-auto");
+    openbtn.classList.add("lg:block");
+    myTOC.classList.remove("block");
+    myTOC.classList.add("hidden");
+    myTOC.style.animationDuration = "1s";
+  }
+</script>
+  </body>
+</html>
