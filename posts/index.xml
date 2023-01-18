@@ -6,7 +6,7 @@
     <description>Recent content in Posts on Bytadit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 10 Oct 2022 10:59:11 +0700</lastBuildDate><atom:link href="https://bytadit.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 18 Jan 2023 14:53:48 +0700</lastBuildDate><atom:link href="https://bytadit.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Website Journey</title>
       <link>https://bytadit.me/posts/my-website-journey/</link>
@@ -14,6 +14,16 @@
       
       <guid>https://bytadit.me/posts/my-website-journey/</guid>
       <description>Hey there!, Adit&amp;rsquo;s here, and this is my first post. I want to share a story of my journey in creating this site, my portfolio website.</description>
+    </item>
+    
+    <item>
+      <title>Tutorial Simple Bikin Website Portfolio</title>
+      <link>https://bytadit.me/posts/tutorial-simple-bikin-website-portfolio/</link>
+      <pubDate>Wed, 18 Jan 2023 14:53:48 +0700</pubDate>
+      
+      <guid>https://bytadit.me/posts/tutorial-simple-bikin-website-portfolio/</guid>
+      <description>On Progress Tutorial ini akan berisi step by step tentang:
+Installasi Website Berbasis SSG Hugo Hosting Github Pages Cara dapat TLD domain gratis </description>
     </item>
     
   </channel>

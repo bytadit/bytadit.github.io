@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>github on Bytadit</title>
+    <link>https://bytadit.me/tags/github/</link>
+    <description>Recent content in github on Bytadit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 18 Jan 2023 14:53:48 +0700</lastBuildDate><atom:link href="https://bytadit.me/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tutorial Simple Bikin Website Portfolio</title>
+      <link>https://bytadit.me/posts/tutorial-simple-bikin-website-portfolio/</link>
+      <pubDate>Wed, 18 Jan 2023 14:53:48 +0700</pubDate>
+      
+      <guid>https://bytadit.me/posts/tutorial-simple-bikin-website-portfolio/</guid>
+      <description>On Progress Tutorial ini akan berisi step by step tentang:
+Installasi Website Berbasis SSG Hugo Hosting Github Pages Cara dapat TLD domain gratis </description>
+    </item>
+    
+  </channel>
+</rss>
